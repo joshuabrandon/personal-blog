@@ -1,0 +1,19 @@
+<!-- links base template -->
+{% extends "blog/base.html" %}
+<!-- creates a block named 'content' which will overwrite the block in the base template -->
+{% block content %}
+    <!-- The below creates a loop which acesses the 'posts' variable in blog/views.py -->
+    {% for post in posts %}
+        <article class="media content-section">
+            <div class="media-body">
+              <div class="article-metadata">
+                <a class="mr-2" href="#">{{ post.author }}</a>
+                <small class="text-muted">{{ post.date_posted }}</small>
+              </div>
+              <h2><a class="article-title" href="#">{{ post.title }}</a></h2>
+              <p class="article-content">{{ post.content }}</p>
+            </div>
+        </article>
+    {% endfor %}
+<!-- ends the block named 'content' -->
+{% endblock content %}
